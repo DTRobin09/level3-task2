@@ -40,15 +40,17 @@ class AddPortalFragment : Fragment() {
         val titleText = etTitle.text.toString()
         val urlText = etTextUrl.text.toString()
         if (titleText.isBlank() && urlText.isBlank()) {
-            Snackbar.make(etTitle, getString(R.string.warning_invalid_fields), Snackbar.LENGTH_LONG)
-                .show()
+            Snackbar.make(
+                etTitle,
+                getString(R.string.warning_invalid_fields), 
+                Snackbar.LENGTH_LONG
+            ).show()
         } else if (!etTextUrl.text.startsWith("http://") && !etTextUrl.text.startsWith("https://")) {
             Snackbar.make(
                 etTitle,
                 getString(R.string.warning_invalid_protocol),
                 Snackbar.LENGTH_LONG
-            )
-                .show()
+            ).show()
         } else {
             setFragmentResult(
                 REQ_PORTAL_KEY,
