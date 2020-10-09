@@ -18,14 +18,14 @@
         android:padding="1dp">
 
         <TextView
-            android:id="@+id/tvTitle"
+            android:id="@+id/tvPortalTitle"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp" />
 
         <TextView
-            android:id="@+id/tvUrl"
+            android:id="@+id/tvPortalUrl"
             android:textSize="13sp"
             style="@style/TextAppearance.MaterialComponents.Body2"
             android:layout_width="match_parent"
