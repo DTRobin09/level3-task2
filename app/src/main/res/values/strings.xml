@@ -6,4 +6,6 @@
     <string name="url">Url</string>
     <string name="add_portal">add portal</string>
     <string name="text_https">https://</string>
+
+    <string name="warning_invalid_fields">Please fill all fields</string>
 </resources>
