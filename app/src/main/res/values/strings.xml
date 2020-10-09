@@ -8,4 +8,5 @@
     <string name="text_https">https://</string>
 
     <string name="warning_invalid_fields">Please fill all fields</string>
+    <string name="warning_invalid_protocol">Please fill in a valid protocol like http:// or https://</string>
 </resources>

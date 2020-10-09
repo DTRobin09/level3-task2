@@ -39,14 +39,22 @@ class AddPortalFragment : Fragment() {
     private fun onAddPortal() {
         val titleText = etTitle.text.toString()
         val urlText = etTextUrl.text.toString()
-        if (titleText.isNotBlank() && urlText.isNotBlank()) {
+        if (titleText.isBlank() && urlText.isBlank()) {
+            Snackbar.make(etTitle, getString(R.string.warning_invalid_fields), Snackbar.LENGTH_LONG)
+                .show()
+        } else if (!etTextUrl.text.startsWith("http://") && !etTextUrl.text.startsWith("https://")) {
+            Snackbar.make(
+                etTitle,
+                getString(R.string.warning_invalid_protocol),
+                Snackbar.LENGTH_LONG
+            )
+                .show()
+        } else {
             setFragmentResult(
                 REQ_PORTAL_KEY,
                 bundleOf(Pair(BUNDLE_PORTAL_KEY, Portal(titleText, urlText)))
             )
             findNavController().popBackStack()
-        } else {
-            Snackbar.make(etTitle, getString(R.string.warning_invalid_fields), Snackbar.LENGTH_LONG).show()
         }
     }
 }
