@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(findViewById(R.id.toolbar))
 
-
         navController = findNavController(R.id.nav_host_fragment)
 
         fab.setOnClickListener {

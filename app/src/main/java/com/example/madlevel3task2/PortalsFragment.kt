@@ -5,10 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.fragment.app.setFragmentResultListener
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_portals.*
 
 /**
@@ -20,8 +18,8 @@ class PortalsFragment : Fragment() {
     private val portalAdapter = PortalAdapter(portals)
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_portals, container, false)
@@ -31,6 +29,7 @@ class PortalsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initViews()
+        observeAddPortalResult()
     }
 
     private fun initViews() {
@@ -38,4 +37,12 @@ class PortalsFragment : Fragment() {
         rvPortals.adapter = portalAdapter
     }
 
+    private fun observeAddPortalResult() {
+        setFragmentResultListener(REQ_PORTAL_KEY) { key, bundle ->
+            bundle.getParcelable<Portal>(BUNDLE_PORTAL_KEY)?.let {
+                portals.add(it)
+                portalAdapter.notifyDataSetChanged()
+            }
+        }
+    }
 }

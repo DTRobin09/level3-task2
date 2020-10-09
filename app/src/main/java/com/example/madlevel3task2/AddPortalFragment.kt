@@ -37,12 +37,12 @@ class AddPortalFragment : Fragment() {
     }
 
     private fun onAddPortal() {
-        val titleTxt = etTitle.text.toString()
-        val urlTxt = etTextUrl.text.toString()
-        if (titleTxt.isNotBlank() && urlTxt.isNotBlank()) {
+        val titleText = etTitle.text.toString()
+        val urlText = etTextUrl.text.toString()
+        if (titleText.isNotBlank() && urlText.isNotBlank()) {
             setFragmentResult(
                 REQ_PORTAL_KEY,
-                bundleOf(Pair(BUNDLE_PORTAL_KEY, Portal(titleTxt, urlTxt)))
+                bundleOf(Pair(BUNDLE_PORTAL_KEY, Portal(titleText, urlText)))
             )
             findNavController().popBackStack()
         } else {
